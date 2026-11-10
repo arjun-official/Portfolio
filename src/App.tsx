@@ -1,16 +1,16 @@
 import { certifications, experiences, languages, profile, projects, skillGroups } from '@/data/profile';
 import {
-  ArrowUpRight,
-  Code2,
-  Download,
-  ExternalLink,
-  GraduationCap,
-  Mail,
-  MapPin,
-  Menu,
-  Phone,
-  Sparkles,
-  X,
+    ArrowUpRight,
+    Code2,
+    Download,
+    ExternalLink,
+    GraduationCap,
+    Mail,
+    MapPin,
+    Menu,
+    Phone,
+    Sparkles,
+    X,
 } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 
@@ -56,8 +56,8 @@ function PageIntro({ number, title, copy }: { number: string; title: string; cop
 function HomePage() {
   return <>
     <section className="hero section-wrap">
-      <div className="hero-copy reveal"><div className="availability"><span className="status-dot" /> Computer Science & Engineering undergraduate</div><h1>Building thoughtful software for <em>intelligent</em> systems.</h1><p className="hero-lede">{profile.summary}</p><div className="hero-actions"><LinkButton path="/projects" primary>Explore projects <ArrowUpRight size={17} /></LinkButton><a className="button button-ghost" href={`mailto:${profile.email}`}>Contact me <Mail size={17} /></a></div><div className="hero-meta"><span><MapPin size={15} /> {profile.location}</span><span className="meta-divider" /><span>Python · AI/ML · Backend</span></div></div>
-      <div className="hero-visual reveal reveal-delay"><div className="portrait-card"><div className="portrait-glow" /><div className="portrait-placeholder"><img src="/profile/profile.jpeg" alt={`${profile.name} profile`} onError={(event) => { event.currentTarget.style.display = 'none'; }} /><span>{profile.initials}</span><small>Profile photo<br />placeholder</small></div><div className="portrait-caption"><span>Currently exploring</span><strong>Agentic AI & Multi-Agent Systems</strong></div></div><div className="float-card float-top"><Sparkles size={15} /><span>Curious by design</span></div><div className="float-card float-bottom"><Code2 size={15} /><span>Python · Django · APIs</span></div></div>
+      <div className="hero-copy reveal"><div className="availability"><span className="status-dot" /> Computer Science & Engineering undergraduate</div><h1>Building thoughtful software for <em>intelligent</em> systems.</h1><p className="hero-lede">{profile.summary}</p><div className="hero-actions"><LinkButton path="/projects" primary>Explore projects <ArrowUpRight size={17} /></LinkButton><a className="button button-ghost" href={`mailto:${profile.email}`}>Contact me <Mail size={17} /></a></div><div className="hero-meta"><span><MapPin size={15} /> {profile.location}</span><span className="meta-divider" /><span>Python · Backend · AWS</span></div></div>
+      <div className="hero-visual reveal reveal-delay"><div className="portrait-card"><div className="portrait-glow" /><div className="portrait-placeholder"><img src="/profile/profile.jpeg" alt={`${profile.name} profile`} onError={(event) => { event.currentTarget.style.display = 'none'; }} /><span>{profile.initials}</span><small>Profile photo<br />placeholder</small></div><div className="portrait-caption"><span>Currently exploring</span><strong>DevOps & AWS Cloud Services</strong></div></div><div className="float-card float-top"><Sparkles size={15} /><span>Curious by design</span></div><div className="float-card float-bottom"><Code2 size={15} /><span>Python · Django · APIs</span></div></div>
     </section>
     <section className="stats-strip section-wrap"><div><strong>04</strong><span>Selected projects</span></div><div><strong>02</strong><span>Internship experiences</span></div><div><strong>07</strong><span>Certifications & courses</span></div><div><strong>03</strong><span>Spoken languages</span></div></section>
     <section className="home-links section-wrap"><div><span className="kicker">01 / Explore</span><h2>Everything I’m learning, building, and becoming.</h2></div><div className="home-link-grid">{navItems.slice(1, 5).map((item, index) => <a className="home-link-card" href={item.path} key={item.path}><span>0{index + 1}</span><strong>{item.label}</strong><ArrowUpRight size={18} /></a>)}</div></section>
@@ -65,7 +65,7 @@ function HomePage() {
 }
 
 function SkillsPage() {
-  return <><PageIntro number="01" title="A practical technical toolkit." copy="A growing set of tools shaped by hands-on projects, internships, and focused learning." /><section className="content-section section-wrap page-content"><div className="skills-grid">{skillGroups.map((group, index) => <article className={`skill-card ${index === 5 ? 'skill-wide' : ''}`} key={group.label}><span className="card-number">0{index + 1}</span><h2>{group.label}</h2><div className="chips">{group.items.map((item) => <span key={item}>{item}</span>)}</div></article>)}</div></section></>;
+  return <><PageIntro number="01" title="A practical technical toolkit." copy="A growing set of tools shaped by hands-on projects, internships, and focused learning across software, AI, AWS, and DevOps." /><section className="content-section section-wrap page-content"><div className="skills-grid">{skillGroups.map((group, index) => <article className={`skill-card ${group.loading ? 'skill-loading' : ''}`} key={group.label}><div className="skill-card-heading"><span className="card-number">0{index + 1}</span>{group.loading && <span className="skill-loading-status"><span className="skill-loading-dot" /> Loading</span>}</div><h2>{group.label}</h2><div className="chips">{group.items.map((item) => <span key={item}>{item}</span>)}</div></article>)}</div></section></>;
 }
 
 function ExperiencePage() {
@@ -77,7 +77,7 @@ function ProjectsPage() {
 }
 
 function EducationPage() {
-  return <><PageIntro number="04" title="Grounded in fundamentals." copy="A computer science foundation supported by consistent learning in AI, software development, and data systems." /><section className="content-section section-wrap page-content education-page"><div className="education-card"><div className="edu-icon"><GraduationCap /></div><div><span className="kicker">{profile.education.date}</span><h2>{profile.education.degree}</h2><p>{profile.education.institution}</p><strong>{profile.education.grade}</strong></div></div><div className="school-list">{profile.education.school.map((school) => <div key={school.title}><div><h3>{school.title}</h3><span>{school.result}</span></div><GraduationCap size={18} /></div>)}</div><div className="certifications"><div className="section-heading"><span className="kicker">05 / Certifications</span><h2>Always learning.</h2></div><div className="cert-list">{certifications.map((cert) => <div className="cert-item" key={cert.name}><div><h3>{cert.name}</h3><p>{cert.issuer}</p></div><span className={cert.status === 'In Progress' ? 'cert-status progress' : 'cert-status'}>{cert.status}</span></div>)}</div></div><div className="languages"><div className="language-intro"><span className="kicker">06 / Beyond code</span><h2>Communication across contexts.</h2></div><div className="language-list">{languages.map((language) => <div key={language.name}><span>{language.name}</span><small>{language.level}</small></div>)}</div></div></section></>;
+  return <><PageIntro number="04" title="Grounded in fundamentals." copy="A computer science foundation supported by consistent learning in AI, software development, cloud systems, and data." /><section className="content-section section-wrap page-content education-page"><div className="education-card"><div className="edu-icon"><GraduationCap /></div><div><span className="kicker">{profile.education.date}</span><h2>{profile.education.degree}</h2><p>{profile.education.institution}</p><strong>{profile.education.grade}</strong></div></div><div className="school-list">{profile.education.school.map((school) => <div key={school.title}><div><h3>{school.title}</h3><span>{school.result}</span></div><GraduationCap size={18} /></div>)}</div><div className="certifications"><div className="section-heading"><span className="kicker">05 / Certifications</span><h2>Always learning.</h2></div><div className="cert-list">{certifications.map((cert) => <div className="cert-item" key={cert.name}><div><h3>{cert.name}</h3><p>{cert.issuer}</p></div><span className={cert.status === 'In Progress' ? 'cert-status progress' : 'cert-status'}>{cert.status}</span></div>)}</div></div><div className="languages"><div className="language-intro"><span className="kicker">06 / Beyond code</span><h2>Communication across contexts.</h2></div><div className="language-list">{languages.map((language) => <div key={language.name}><span>{language.name}</span><small>{language.level}</small></div>)}</div></div></section></>;
 }
 
 function ContactPage() {

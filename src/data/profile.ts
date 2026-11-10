@@ -34,7 +34,7 @@ export const profile = {
     github: 'GitHub',
   },
   summary:
-    'Computer Science and Engineering undergraduate with internship experience in Python Django development, REST API development, and exposure to Agentic AI and Multi-Agent Systems. Experienced in developing a clinical management system and AI-powered applications. Skilled in Python, SQL, Django, MySQL, Git, and API testing using Postman. Interested in software engineering, backend development, and building reliable intelligent systems.',
+    'Computer Science and Engineering undergraduate with internship experience in Python Django development, REST API development, and exposure to Agentic AI and Multi-Agent Systems. Experienced in developing a clinical management system and AI-powered applications. Skilled in Python, SQL, Django, MySQL, Git, and API testing using Postman. Currently exploring cloud services and DevOps practices using AWS while building reliable intelligent systems.',
   education: {
     degree: 'Bachelor of Technology in Computer Science and Engineering',
     institution: 'SRM Institute of Science and Technology, Ramapuram',
@@ -54,6 +54,8 @@ export const skillGroups = [
   { label: 'Databases', items: ['MySQL'] },
   { label: 'Development tools', items: ['Git', 'GitHub', 'Postman'] },
   { label: 'AI & machine learning', items: ['Machine Learning', 'NLP', 'Generative AI', 'LLM Applications', 'Agentic AI', 'Multi-Agent Systems', 'Prompt Engineering'] },
+  { label: 'DevOps', items: ['Linux', 'Bash', 'Shell Scripting', 'Docker', 'Docker Compose', 'Kubernetes', 'Helm', 'GitHub Actions', 'Jenkins', 'Terraform', 'Ansible', 'CI/CD'], loading: true },
+  { label: 'AWS Cloud Services', items: ['AWS', 'IAM', 'EC2', 'S3', 'VPC', 'RDS', 'Lambda', 'CloudWatch', 'CloudFront', 'Route 53', 'ECS', 'EKS', 'CloudFormation'], loading: true },
   { label: 'Additional skills', items: ['API Testing', 'Technical Documentation', 'AI Workflow Automation', 'Data Analytics'] },
 ];
 

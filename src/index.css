@@ -55,3 +55,10 @@ footer { max-width: 1120px; margin: 0 auto; padding: 25px 0 40px; border-top: 1p
 .loading-bar i { display: block; width: 42%; height: 100%; border-radius: inherit; background: #8de0df; box-shadow: 0 0 12px rgba(141, 224, 223, .75); animation: loading-progress 2.2s ease-in-out infinite; }
 @keyframes loading-spin { to { transform: rotate(360deg); } }
 @keyframes loading-progress { 0% { transform: translateX(-120%); } 55%, 100% { transform: translateX(260%); } }
+.float-bottom { bottom: -28px; }
+.skill-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.skill-loading { position: relative; overflow: hidden; border-color: rgba(91, 174, 181, .38); }
+.skill-loading::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 20%, rgba(119, 222, 216, .08) 48%, transparent 76%); transform: translateX(-100%); animation: skill-scan 2.8s ease-in-out infinite; }
+.skill-loading-status { display: inline-flex; align-items: center; gap: 6px; color: #83d9d4; font: 500 9px 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
+.skill-loading-dot { width: 7px; height: 7px; border: 1px solid #8de0df; border-top-color: transparent; border-radius: 50%; animation: loading-spin .8s linear infinite; }
+@keyframes skill-scan { 0%, 20% { transform: translateX(-100%); } 70%, 100% { transform: translateX(100%); } }
